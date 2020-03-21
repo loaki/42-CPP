@@ -14,9 +14,10 @@
 
 CXX			= clang++
 CXX_FLAGS	= -Wall -Wextra -Werror
-NAME 		= megaphone
+NAME 		= PhoneBook
 
-SRC			= megaphone.cpp
+SRC			= main.cpp\
+			  dir.cpp\
 
 OBJ			= $(SRC:.cpp=.o)
 

@@ -5,18 +5,26 @@ int		main()
 	dir dir;
 	std::string cmd;
 
-	while (cmd != "EXIT")
+	dir.start();
+	std::cout << ">";
+	while (std::getline(std::cin, cmd) && cmd != "EXIT")
 	{
-		std::cout << ">";
-		std::getline(std::cin, cmd);
 		if (cmd == "ADD")
 			dir.add();
+		else if (cmd == "HELP")
+		{
+			std::cout << "available commands : ADD, SEARCH, HELP, EXIT" << std::endl;
+			std::cout << ">";
+		}
 		else if (cmd == "SEARCH")
 			dir.search();
-		else if (cmd == "HELP")
-			std::cout << "available commands : ADD, SEARCH, HELP, EXIT" << std::endl;
-		else if (cmd != "EXIT")
+		else  if (cmd != "EXIT" && cmd != "")
+		{
 			std::cout << "command not found, type HELP" << std::endl;
+			std::cout << ">";
+		}
+		else if (cmd != "EXIT")
+			std::cout << ">";
 	}
 	return (0);
 }

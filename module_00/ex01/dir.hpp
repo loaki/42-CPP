@@ -2,16 +2,18 @@
 # define DIR_HPP
 
 # include <iostream>
+# include <string>
+//# include "contact.hpp"
 
 class dir
 {
 private:
-	contact	contact[8];
+//	contact	contact[8];
 	int		nb_contact;
 public:
-	dir();
+	void	start();
 	void	add();
-	void	display();
+	void	preview();
 	void	search();
 };
 

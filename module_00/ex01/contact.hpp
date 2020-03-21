@@ -2,16 +2,18 @@
 # define CONTACT_HPP
 
 #include <iostream>
+#include <iomanip>
 #include <string>
 
 class contact
 {
 private:
-	std::string	field_infos[3];
-	std::string	field_name[3];
+	std::string			field_info[11];
+	static std::string	field_name[11];
 public:
-	void	add(int i);
+	int		add();
 	void	preview();
 	void	display();
-}
+};
 
+#endif

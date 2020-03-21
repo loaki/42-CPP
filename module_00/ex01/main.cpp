@@ -6,7 +6,6 @@ int		main()
 	std::string cmd;
 
 	dir.start();
-	std::cout << ">";
 	while (std::getline(std::cin, cmd) && cmd != "EXIT")
 	{
 		if (cmd == "ADD")

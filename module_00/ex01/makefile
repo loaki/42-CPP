@@ -18,6 +18,7 @@ NAME 		= PhoneBook
 
 SRC			= main.cpp\
 			  dir.cpp\
+			  contact.cpp\
 
 OBJ			= $(SRC:.cpp=.o)
 

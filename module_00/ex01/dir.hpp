@@ -3,12 +3,12 @@
 
 # include <iostream>
 # include <string>
-//# include "contact.hpp"
+# include "contact.hpp"
 
 class dir
 {
 private:
-//	contact	contact[8];
+	contact	contact[8];
 	int		nb_contact;
 public:
 	void	start();

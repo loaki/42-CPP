@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jfeuilla <jfeuilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/14 18:32:25 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 17:59:36 by ncolomer         ###   ########.fr       */
+/*   Created: 2020/06/23 18:31:59 by jfeuilla          #+#    #+#             */
+/*   Updated: 2020/06/23 18:47:25 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@ private:
 	std::string	type;
 public:
 	ZombieEvent();
-	virtual ~ZombieEvent();
 
-	void 		setZombieType(std::string const &type);
-	Zombie		*newZombie(std::string const &name);
+	void 		setZombieType(std::string &type);
+	Zombie		*newZombie(std::string &name);
 	Zombie		*randomChump(void);
 };
 

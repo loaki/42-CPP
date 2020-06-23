@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jfeuilla <jfeuilla@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/23 18:02:32 by jfeuilla          #+#    #+#             */
-/*   Updated: 2020/06/23 18:53:31 by jfeuilla         ###   ########.fr       */
+/*   Created: 2019/12/14 18:24:33 by ncolomer          #+#    #+#             */
+/*   Updated: 2020/06/23 18:29:05 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,21 @@
 
 # include <iostream>
 # include <string>
+# include <random>
 
 class Zombie
 {
 private:
-	std::string type;
-	std::string name;
+	std::string	type;
+	std::string	name;
 public:
 	Zombie();
-	Zombie(std::string &type, std::string &name);
-	void advert(void);
-};	
+	Zombie(std::string const &type, std::string const &name);
+	virtual ~Zombie();
+
+	void setCharacteristics(std::string const &type, std::string const &name);
+	static std::string randomName(std::string::size_type length);
+	void announce(void);
+};
 
 #endif

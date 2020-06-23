@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ZombieEvent.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jfeuilla <jfeuilla@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/23 18:34:22 by jfeuilla          #+#    #+#             */
-/*   Updated: 2020/06/23 18:50:07 by jfeuilla         ###   ########.fr       */
+/*   Created: 2019/12/14 18:32:55 by ncolomer          #+#    #+#             */
+/*   Updated: 2020/06/23 18:43:50 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,16 @@ ZombieEvent::ZombieEvent()
 	this->type = "";
 }
 
-void ZombieEvent::setZombieType(std::string &type)
+ZombieEvent::~ZombieEvent()
+{
+}
+
+void ZombieEvent::setZombieType(std::string const &type)
 {
 	this->type = type;
 }
 
-Zombie *ZombieEvent::newZombie(std::string &name)
+Zombie *ZombieEvent::newZombie(std::string const &name)
 {
 	return (new Zombie(this->type, name));
 }
@@ -31,7 +35,7 @@ Zombie *ZombieEvent::randomChump(void)
 {
 	Zombie *zombie;
 
-	zombie = new Zombie(this->type, "carl");
-	zombie->advert();
+	zombie = new Zombie(this->type, Zombie::randomName(10));
+	zombie->announce();
 	return (zombie);
 }

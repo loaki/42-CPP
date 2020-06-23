@@ -6,7 +6,7 @@
 /*   By: jfeuilla <jfeuilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 18:10:21 by jfeuilla          #+#    #+#             */
-/*   Updated: 2020/06/23 18:53:15 by jfeuilla         ###   ########.fr       */
+/*   Updated: 2020/06/23 19:20:45 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Zombie::Zombie():
 {
 }
 
-Zombie::Zombie(std::string &type, std::string &name):
+Zombie::Zombie(std::string const &type, std::string const &name):
     type(type), name(name)
 {
 }

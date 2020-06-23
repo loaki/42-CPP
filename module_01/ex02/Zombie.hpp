@@ -6,7 +6,7 @@
 /*   By: jfeuilla <jfeuilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 18:02:32 by jfeuilla          #+#    #+#             */
-/*   Updated: 2020/06/23 18:53:31 by jfeuilla         ###   ########.fr       */
+/*   Updated: 2020/06/23 19:21:00 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ private:
 	std::string name;
 public:
 	Zombie();
-	Zombie(std::string &type, std::string &name);
+	Zombie(std::string const &type, std::string const &name);
 	void advert(void);
 };	
 

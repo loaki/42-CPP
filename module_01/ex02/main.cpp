@@ -6,22 +6,32 @@
 /*   By: jfeuilla <jfeuilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 18:18:24 by jfeuilla          #+#    #+#             */
-/*   Updated: 2020/06/23 19:02:49 by jfeuilla         ###   ########.fr       */
+/*   Updated: 2020/06/23 19:54:30 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 #include "ZombieEvent.hpp"
 
-#define COUNT 3;
+#define COUNT 3
 
 int main()
 {
-	ZombieEvent lurkers;
-	Zombie *lurkersZombies[COUNT];
+	ZombieEvent fast;
+	ZombieEvent slow;
+	Zombie *fastZombies[COUNT];
+	Zombie *slowZombies[COUNT];
 
-	lurkers.setZombieType("Lurker");
-	std::cout << "# Creating " << COUNT << " Lurker Zombie" << std::endl;
+	fast.setZombieType("fast");
+	slow.setZombieType("slow");
 	for (int i = 0; i < COUNT; i++)
-		lurkersZombies[i] = lurkers.randomChump();
+	{
+		fastZombies[i] = fast.randomChump();
+		slowZombies[i] = slow.randomChump();
+	}
+	for (int i = 0; i < COUNT; i++)
+	{
+		delete fastZombies[i];
+		delete slowZombies[i];
+	}
 }

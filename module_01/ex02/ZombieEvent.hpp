@@ -6,7 +6,7 @@
 /*   By: jfeuilla <jfeuilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/23 18:31:59 by jfeuilla          #+#    #+#             */
-/*   Updated: 2020/06/23 18:47:25 by jfeuilla         ###   ########.fr       */
+/*   Updated: 2020/06/23 19:44:15 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <string>
+# include <random>
 # include "Zombie.hpp"
 
 class ZombieEvent
@@ -24,8 +25,8 @@ private:
 public:
 	ZombieEvent();
 
-	void 		setZombieType(std::string &type);
-	Zombie		*newZombie(std::string &name);
+	void 		setZombieType(std::string const &type);
+	Zombie		*newZombie(std::string const &name);
 	Zombie		*randomChump(void);
 };
 

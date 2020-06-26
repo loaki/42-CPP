@@ -16,7 +16,6 @@ public:
 
 	ZombieHorde(int n);
     virtual     ~ZombieHorde();
-	void 	    setZombieType(std::string const &type);
 	std::string	randomChump(void);
     void        announce(void);
 };

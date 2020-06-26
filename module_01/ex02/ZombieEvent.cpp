@@ -37,6 +37,6 @@ Zombie *ZombieEvent::randomChump(void)
 	for (int i = 0; i < len; i++)
 		name += rand() % 26 + 97;
 	zombie = new Zombie(this->type, name);
-	zombie->advert();
+	zombie->announce();
 	return (zombie);
 }

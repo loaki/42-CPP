@@ -13,7 +13,7 @@ public:
 	Brain();
 	virtual ~Brain();
 
-//	int getNeurones(void) const;
+	int getNeurones(void) const;
 	std::string identify(void) const;
 };
 

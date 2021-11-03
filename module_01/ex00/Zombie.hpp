@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfeuilla <jfeuilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 14:48:47 by jfeuilla          #+#    #+#             */
-/*   Updated: 2021/11/03 14:58:06 by jfeuilla         ###   ########.fr       */
+/*   Created: 2021/11/03 14:54:31 by jfeuilla          #+#    #+#             */
+/*   Updated: 2021/11/03 14:54:35 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-int main()
+# include <iostream>
+
+class	Zombie
 {
-	Zombie bob("Bob");
-	bob.announce();
-	Zombie* billy = newZombie("Billy");
-	randomChump("Jack");
-	delete billy;
-	return (0);
-}
+public:
+	Zombie(std::string name);
+	~Zombie(void);
+
+	void announce( void ) const;
+
+private :
+	std::string _name;
+};
+
+Zombie* newZombie( std::string name );
+
+void randomChump( std::string name );
+
+#endif

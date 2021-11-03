@@ -6,7 +6,7 @@
 #    By: jfeuilla <jfeuilla@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/03 18:06:33 by jfeuilla          #+#    #+#              #
-#    Updated: 2021/11/03 14:49:37 by jfeuilla         ###   ########.fr        #
+#    Updated: 2021/11/03 14:48:38 by jfeuilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,12 @@
 
 CXX			= clang++
 CXX_FLAGS	= -Wall -Wextra -Werror
-NAME 		= megaphone
+NAME 		= brainz
 
-SRC			= megaphone.cpp
+SRC			= main.cpp\
+			  Zombie.cpp\
+			  newZombie.cpp\
+			  randomChump.cpp
 
 OBJ			= $(SRC:.cpp=.o)
 

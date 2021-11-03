@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfeuilla <jfeuilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 14:48:47 by jfeuilla          #+#    #+#             */
-/*   Updated: 2021/11/03 14:58:06 by jfeuilla         ###   ########.fr       */
+/*   Created: 2021/11/03 15:04:43 by jfeuilla          #+#    #+#             */
+/*   Updated: 2021/11/03 15:24:43 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 int main()
 {
-	Zombie bob("Bob");
-	bob.announce();
-	Zombie* billy = newZombie("Billy");
-	randomChump("Jack");
-	delete billy;
+	int nbr = 5;
+	
+	Zombie* horde = zombieHorde(nbr, "Zombie");
+	for (int i = 0; i < nbr; i++)
+		horde[i].announce();
+	delete [] horde;
 	return (0);
 }

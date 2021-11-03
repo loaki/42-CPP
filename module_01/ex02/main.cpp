@@ -5,20 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfeuilla <jfeuilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 15:04:43 by jfeuilla          #+#    #+#             */
-/*   Updated: 2021/11/03 15:52:37 by jfeuilla         ###   ########.fr       */
+/*   Created: 2021/11/03 15:55:50 by jfeuilla          #+#    #+#             */
+/*   Updated: 2021/11/03 15:58:57 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
 
 int main()
 {
-	int nbr = 5;
+	std::string string = "HI THIS IS BRAIN";
+
+	std::string *stringPTR = &string;
+	std::string &stringREF = string;
 	
-	Zombie* horde = zombieHorde(nbr, "Zombie");
-	for (int i = 0; i < nbr; i++)
-		horde[i].announce();
-	delete [] horde;
+	std::cout << "adress of string : &str = "<< &string << std::endl;
+	std::cout << "adress of pointer's string : stringPTR = "<< stringPTR << std::endl;
+	std::cout << "adress of reference's string : &stringREF = "<< &stringREF << std::endl;
+
+	std::cout << *stringPTR << std::endl;
+	std::cout << stringREF << std::endl;
+
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jfeuilla <jfeuilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:54:31 by jfeuilla          #+#    #+#             */
-/*   Updated: 2021/11/03 14:54:35 by jfeuilla         ###   ########.fr       */
+/*   Updated: 2021/11/09 15:14:55 by jfeuilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ public:
 	Zombie(std::string name);
 	~Zombie(void);
 
-	void announce( void ) const;
+	void announce(void) const;
 
 private :
 	std::string _name;
 };
 
-Zombie* newZombie( std::string name );
+Zombie* newZombie(std::string name);
 
-void randomChump( std::string name );
+void randomChump(std::string name);
 
 #endif

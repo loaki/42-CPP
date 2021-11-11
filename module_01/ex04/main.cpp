@@ -18,10 +18,9 @@ int main(int ac, char **av)
     std::string line;
     std::string text;
     std::string result;
-    size_t start;
-    size_t end;
+    size_t pos;
 
-    if(ac != 4 || av[2].empty() || av[3].empty())
+    if(ac != 4 || std::string(av[2]).empty() || std::string(av[3]).empty())
     {
         std::cout << "Error : wrong parameters" << std::endl;
         return (0);
@@ -33,7 +32,14 @@ int main(int ac, char **av)
         return (0);
     }
     while(getline(readFile, line))
-        text += (readout + '\n');
-    end = text.find(av[2], start);
-    printf(end, start);
+        text += (line + '\n');
+	while((pos = text.find(av[2], pos)) != std::string::npos)
+	{
+		text.erase(pos, std::string(av[2]).length());
+        text.insert(pos, av[3]);
+        pos += std::string(av[3]).length();
+	}
+	std::ofstream outfile(std::string(av[1]) + ".replace");
+	outfile << text << std::endl;
+	outfile.close();
 }

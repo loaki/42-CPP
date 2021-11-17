@@ -24,12 +24,34 @@ typedef void(Karen::* lev) (void);
 
 void	Karen::complain(std::string level)
 {
-	std::string const message[4] = {"debug", "info", "warning", "error"};
+	std::string const message[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	lev	cmd[] = {&Karen::debug, &Karen::info, &Karen::warning, &Karen::error};
+	int i;
 
-	for (int i = 0; i < 4; i++)
+	i = 0;
+	while(i < 4 && message[i] != level)
+		i++;
+	switch (i)
 	{
-		if (level == message[i])
-			(this->*cmd[i])();
+		case 0:
+			std::cout << "[ " << message[i] << " ]" << std::endl;
+			(this->*cmd[0])();
+			std::cout << std::endl;
+			i++;
+		case 1:
+			std::cout << "[ " << message[i] << " ]" << std::endl;
+			(this->*cmd[1])();
+			std::cout << std::endl;
+			i++;
+		case 2:
+			std::cout << "[ " << message[i] << " ]" << std::endl;
+			(this->*cmd[2])();
+			std::cout << std::endl;
+			i++;
+		case 3:
+			std::cout << "[ " << message[i] << " ]" << std::endl;
+			(this->*cmd[3])();
+			std::cout << std::endl;
+			i++;
 	}
 }

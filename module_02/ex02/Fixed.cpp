@@ -2,30 +2,25 @@
 
 Fixed::Fixed( void ) : _fixed(0), _fractional_bits(8)
 {
-	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed( Fixed const & rhs ) : _fractional_bits(8)
 {
-	std::cout << "Copy constructor called" << std::endl;
 	*this = rhs;
 }
 
 Fixed::Fixed( int const integer ) : _fractional_bits(8)
 {
-	std::cout << "Int constructor called" << std::endl;
 	this->_fixed = integer * (1 << _fractional_bits);
 }
 
 Fixed::Fixed( float const floating ) : _fractional_bits(8)
 {
-	std::cout << "Float constructor called" << std::endl;
 	this->_fixed = std::roundf(floating * (1 << _fractional_bits));
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
 }
 
 int Fixed::getRawBits(void) const
@@ -94,7 +89,6 @@ Fixed const &	Fixed::max(Fixed const & lhs, Fixed const & rhs)
 
 Fixed &	Fixed::operator=(Fixed const & rhs)
 {
-	std::cout << "Assignation operator called" << std::endl;
 	this->_fixed = rhs.getRawBits();
 	return (*this);
 }

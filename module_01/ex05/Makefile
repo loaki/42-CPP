@@ -13,7 +13,7 @@
 .PHONY: all clean fclean re
 
 CXX			= clang++
-CXX_FLAGS	= -Wall -Wextra -Werror
+CXX_FLAGS	= -Wall -Wextra -Werror -std=c++98
 NAME 		= karen
 
 SRC			= main.cpp\

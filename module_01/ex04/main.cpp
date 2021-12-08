@@ -18,8 +18,10 @@ int main(int ac, char **av)
     std::string line;
     std::string text;
     std::string result;
+    std::string replaced;
     size_t pos;
 
+    text = "";
     if(ac != 4 || std::string(av[2]).empty() || std::string(av[3]).empty())
     {
         std::cout << "Error : wrong parameters" << std::endl;
@@ -31,15 +33,17 @@ int main(int ac, char **av)
         std::cout << "Error : can't open file" << std::endl;
         return (0);
     }
-    while(getline(readFile, line))
+    pos = 0;
+    while(std::getline(readFile, line))
         text += (line + '\n');
-	while((pos = text.find(av[2], pos)) != std::string::npos)
+    while((pos = text.find(av[2], pos)) != std::string::npos)
 	{
 		text.erase(pos, std::string(av[2]).length());
         text.insert(pos, av[3]);
         pos += std::string(av[3]).length();
 	}
-	std::ofstream outfile(std::string(av[1]) + ".replace");
+    replaced = av[1] + std::string(".replace");
+	std::ofstream outfile(replaced.c_str());
 	outfile << text << std::endl;
 	outfile.close();
 }

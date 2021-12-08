@@ -14,7 +14,12 @@
 
 void randomChump(std::string name)
 {
-	Zombie random(name);
+	srand(time(NULL));
+	static const char *randName[3] =
+		{"",
+		" Sparrow",
+		"y Chan"};
+	Zombie random(name + randName[rand() % 3]);
 	random.announce();
 	return ;
 }

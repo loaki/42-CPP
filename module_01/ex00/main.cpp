@@ -14,9 +14,9 @@
 
 int main()
 {
-	Zombie bob("Bob");
+	Zombie bob("Billy");
 	bob.announce();
-	Zombie* billy = newZombie("Billy");
+	Zombie* billy = newZombie("Bob");
 	randomChump("Jack");
 	delete billy;
 	return (0);

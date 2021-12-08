@@ -30,6 +30,6 @@ void HumanB::setWeapon(Weapon &weapon)
 
 void HumanB::attack(void) const
 {
-	std::cout << _name << " attacks with his " << _Weapon->getType() << std::endl;
+	std::cout << _name << " attacks with " << _Weapon->getType() << std::endl;
 	return ;
 }

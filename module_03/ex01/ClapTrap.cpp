@@ -11,7 +11,6 @@ ClapTrap::ClapTrap(const ClapTrap &c):_name(c._name),_hitpoints(c._hitpoints),_e
 
 ClapTrap ClapTrap::operator = (const ClapTrap &r) {
 	std::cout << "ClapTrap ClapTrap::operator = (const ClapTrap & c) called" << std::endl;
-
 	if (this == &r) {
 		return *this;
 	}

@@ -22,7 +22,7 @@ int main(int ac, char **av)
     size_t pos;
 
     text = "";
-    if(ac != 4 || std::string(av[2]).empty() || std::string(av[3]).empty())
+    if(ac != 4 || std::string(av[2]).empty())
     {
         std::cout << "Error : wrong parameters" << std::endl;
         return (0);
@@ -44,6 +44,6 @@ int main(int ac, char **av)
 	}
     replaced = av[1] + std::string(".replace");
 	std::ofstream outfile(replaced.c_str());
-	outfile << text << std::endl;
+	outfile << text;
 	outfile.close();
 }

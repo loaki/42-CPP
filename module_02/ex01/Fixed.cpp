@@ -50,7 +50,6 @@ int Fixed::toInt() const {
 }
 
 float Fixed::toFloat() const {
-	//std::cout << (1 << Fixed::_nFracBits) << std::endl;
 	return (float)this->_rawBits / (1 << Fixed::_nFracBits);
 }
 

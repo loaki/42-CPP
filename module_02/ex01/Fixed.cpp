@@ -1,17 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Fixed.cpp                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dpoveda- <me@izenynn.com>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 16:16:47 by dpoveda-          #+#    #+#             */
-/*   Updated: 2022/02/15 18:24:56 by dpoveda-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Fixed.hpp"
-
 #include <iostream>
 #include <cmath>
 
@@ -40,7 +27,7 @@ Fixed::~Fixed() {
 }
 
 Fixed& Fixed::operator=(const Fixed& other) {
-	std::cout << "Assignation operator called" << std::endl;
+	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other) {
 		this->_rawBits = other._rawBits;
 	}
@@ -58,10 +45,12 @@ int Fixed::getRawBits() const {
 }
 
 int Fixed::toInt() const {
+	std::cout<<this->_rawBits << std::endl;
 	return this->_rawBits >> Fixed::_nFracBits;
 }
 
 float Fixed::toFloat() const {
+	//std::cout << (1 << Fixed::_nFracBits) << std::endl;
 	return (float)this->_rawBits / (1 << Fixed::_nFracBits);
 }
 

@@ -1,62 +1,38 @@
-### VARS ###
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jfeuilla <jfeuilla@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/03/03 18:06:33 by jfeuilla          #+#    #+#              #
+#    Updated: 2021/11/17 16:55:05 by jfeuilla         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-UNAME_S := $(shell uname -s)
+.PHONY: all clean fclean re
 
-### PROGRAM ###
+CXX			= clang++ 
+CXX_FLAGS	= -Wall -Wextra -Werror -std=c++98
+NAME 		= fixed
 
-NAME = out
+SRC			= main.cpp\
+			  Fixed.cpp
 
-### COMPILER ###
+OBJ			= $(SRC:.cpp=.o)
 
-CXX = c++
-CXXFLAGS = -std=c++98 -Wall -Wextra -Werror -MD
+all:			$(NAME)
 
-### SOURCES ###
+$(NAME):		$(OBJ)
+				$(CXX) $(CXX_FLAGS) -o $(NAME) $(OBJ)
 
-SRC =	main.cpp		\
-		Fixed.cpp		\
+%.o : %.cpp
+				$(CXX) $(CXX_FLAGS) -o $@ -c $<
 
-
-OBJ = $(SRC:%.cpp=%.o)
-
-DEP = $(SRC:%.cpp=%.d)
-
-### RULES ###
-
-PHONY := all
-all: $(NAME)
-
-$(NAME): $(OBJ)
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
-
-PHONY += sanitize
-ifeq ($(UNAME_S),Linux)
-sanitize: CXXFLAGS += -pedantic -g3 -fsanitize=address -fsanitize=leak -fsanitize=undefined -fsanitize=bounds -fsanitize=null
-endif
-ifeq ($(UNAME_S),Darwin)
-sanitize: CXXFLAGS += -pedantic -g3 -fsanitize=address
-endif
-sanitize: $(NAME)
-
-PHONY += thread
-thread: CXXFLAGS += -g3 -fsanitize=thread
-thread: $(NAME)
-
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-
-PHONY += clean
 clean:
-	rm -rf $(OBJ)
-	rm -rf $(DEP)
+				$(RM) $(OBJ)
 
-PHONY += fclean
-fclean: clean
-	rm -rf $(NAME)
+fclean:			clean
+				rm -f $(NAME)
 
-PHONY += re
-re: fclean all
-
--include $(DEP)
-
-.PHONY: $(PHONY)
+re:				fclean $(NAME)

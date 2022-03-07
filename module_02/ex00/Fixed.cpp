@@ -1,17 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Fixed.cpp                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dpoveda- <me@izenynn.com>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 16:16:47 by dpoveda-          #+#    #+#             */
-/*   Updated: 2022/02/15 16:54:39 by dpoveda-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Fixed.hpp"
-
 #include <iostream>
 
 Fixed::Fixed()
@@ -29,7 +16,7 @@ Fixed::~Fixed() {
 }
 
 Fixed& Fixed::operator=(const Fixed& other) {
-	std::cout << "Assignation operator called" << std::endl;
+	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other) {
 		this->_rawBits = other.getRawBits();
 	}

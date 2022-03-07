@@ -45,7 +45,6 @@ int Fixed::getRawBits() const {
 }
 
 int Fixed::toInt() const {
-	std::cout<<this->_rawBits << std::endl;
 	return this->_rawBits >> Fixed::_nFracBits;
 }
 

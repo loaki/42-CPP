@@ -41,10 +41,10 @@ FragTrap& FragTrap::operator=(const FragTrap& other) {
 }
 
 void FragTrap::highFivesGuys() {
-	if (this->_hitPoints == 0) {
-		std::cout << this->_name << " FragTrap can't hight fives because is dead" << std::endl;
+	if (this->_energyPoints == 0) {
+		std::cout << "ClapTrap " << this->_name << " has not enought Energy points" << std::endl;
 		return;
 	}
-
-	std::cout << this->_name << " FragTrap hight fives guys!!!" << std::endl;
+	this->_energyPoints--;
+	std::cout << this->_name << " FragTrap high fives guys!!!" << std::endl;
 }

@@ -14,7 +14,7 @@
 
 CXX			= clang++
 CXX_FLAGS	= -Wall -Wextra -Werror -std=c++98
-NAME 		= fixed
+NAME 		= FragTrap
 
 SRC			= main.cpp\
 			  ClapTrap.cpp\

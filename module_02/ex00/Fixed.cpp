@@ -1,43 +1,47 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dpoveda- <me@izenynn.com>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/15 16:16:47 by dpoveda-          #+#    #+#             */
+/*   Updated: 2022/02/15 16:54:39 by dpoveda-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
-Fixed::Fixed(void) : _fixed(0), _fractional_bits(8)
-{
+#include <iostream>
+
+Fixed::Fixed()
+	: _rawBits(0) {
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(Fixed const & rhs) : _fractional_bits(8)
-{
+Fixed::Fixed(const Fixed& other) {
 	std::cout << "Copy constructor called" << std::endl;
-	this->_fixed = rhs.getRawBits();
+	*this = other;
 }
 
-Fixed::~Fixed()
-{
+Fixed::~Fixed() {
 	std::cout << "Destructor called" << std::endl;
 }
 
-int Fixed::getRawBits(void) const
-{
-	std::cout << "getRawBits member function called" << std::endl;
-	return (this->_fixed);
-}
-
-void Fixed::setRawBits(int const raw)
-{
-	std::cout << "setRawBits member function called" << std::endl;
-	this->_fixed = raw;
-}
-
-Fixed &	Fixed::operator=(Fixed const & rhs)
-{
+Fixed& Fixed::operator=(const Fixed& other) {
 	std::cout << "Assignation operator called" << std::endl;
-	this->_fixed = rhs.getRawBits();
-	this->_fractional_bits = rhs._fractional_bits;
-	return (*this);
+	if (this != &other) {
+		this->_rawBits = other.getRawBits();
+	}
+	return *this;
 }
 
-std::ostream &	operator<<(std::ostream & out, Fixed const & rhs)
-{
-	out << rhs.getRawBits() << std::endl;
-	return (out);
+void Fixed::setRawBits(const int rawBits) {
+	std::cout << "setRawBits member function called" << std::endl;
+	this->_rawBits = rawBits;
+}
+
+int Fixed::getRawBits() const {
+	std::cout << "getRawBits member function called" << std::endl;
+	return this->_rawBits;
 }

@@ -1,50 +1,62 @@
-#ifndef FIXED_HPP
-# define FIXED_HPP
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dpoveda- <me@izenynn.com>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/15 16:10:57 by dpoveda-          #+#    #+#             */
+/*   Updated: 2022/02/15 19:09:19 by dpoveda-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-# include <iostream>
-# include <cmath>
+#ifndef EX00_FIXED_HPP_
+# define EX00_FIXED_HPP_
 
-class	Fixed
-{
-public:
-	Fixed(void);
-	Fixed(Fixed const & rhs);
-	Fixed( int const );
-	Fixed( float const );
-	~Fixed(void);
+#include <string>
 
-	int getRawBits(void) const;
-	void setRawBits(int const raw); 
+class Fixed {
+	public:
+		Fixed();
+		Fixed(const int value);
+		Fixed(const float value);
+		Fixed(const Fixed& other);
+		~Fixed();
 
-	float					toFloat(void) const;
-	int						toInt(void) const;
-	void					compare(Fixed const & rhs, std::string f1, std::string f2) const;
-	static Fixed&			min(Fixed & lhs, Fixed & rhs);
-	static Fixed const &	min(Fixed const & lhs, Fixed const & rhs);
-	static Fixed&			max(Fixed & lhs, Fixed & rhs);
-	static Fixed const &	max(Fixed const & lhs, Fixed const & rhs);
+		Fixed& operator=(const Fixed& other);
 
-	Fixed&	operator=( Fixed const & rhs );
-	bool	operator>( Fixed const & rhs ) const;
-	bool	operator<( Fixed const & rhs ) const;
-	bool	operator>=( Fixed const & rhs ) const;
-	bool	operator<=( Fixed const & rhs ) const;
-	bool	operator==( Fixed const & rhs ) const;
-	bool	operator!=( Fixed const & rhs ) const;
-	Fixed	operator+( Fixed const & rhs ) const;
-	Fixed	operator-( Fixed const & rhs ) const;
-	Fixed	operator*( Fixed const & rhs ) const;
-	Fixed	operator/( Fixed const & rhs ) const;
-	Fixed&	operator++();
-	Fixed	operator++(int);						
-	Fixed&	operator--();						
-	Fixed	operator--(int);
+		bool operator>(const Fixed& other) const;
+		bool operator<(const Fixed& other) const;
+		bool operator>=(const Fixed& other) const;
+		bool operator<=(const Fixed& other) const;
+		bool operator==(const Fixed& other) const;
+		bool operator!=(const Fixed& other) const;
 
-private :
-	int _fixed;
-	int _fractional_bits;
+		Fixed operator+(const Fixed& other) const;
+		Fixed operator-(const Fixed& other) const;
+		Fixed operator*(const Fixed& other) const;
+		Fixed operator/(const Fixed& other) const;
+
+		Fixed& operator++();
+		Fixed& operator--();
+
+		Fixed operator++(int);
+		Fixed operator--(int);
+
+		static Fixed& min(Fixed& lhs, Fixed& rhs);
+		static Fixed& max(Fixed& lhs, Fixed& rhs);
+		static const Fixed& min(const Fixed& lhs, const Fixed& rhs);
+		static const Fixed& max(const Fixed& lhs, const Fixed& rhs);
+
+		void setRawBits(const int rawBits);
+		int getRawBits() const;
+		int toInt() const;
+		float toFloat() const;
+	private:
+		static const int _nFracBits = 8;
+		int _rawBits;
 };
 
-std::ostream &	operator<<(std::ostream & out, Fixed const & rhs);
+std::ostream &operator<<(std::ostream &ostream, const Fixed& myClass);
 
 #endif

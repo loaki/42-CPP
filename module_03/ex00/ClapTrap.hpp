@@ -1,25 +1,37 @@
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dpoveda- <me@izenynn.com>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/16 00:22:11 by dpoveda-          #+#    #+#             */
+/*   Updated: 2022/02/16 00:45:07 by dpoveda-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef EX00_CLAPTRAP_HPP_
+# define EX00_CLAPTRAP_HPP_
 
 #include <string>
 
 class ClapTrap {
 	public:
+		ClapTrap();
 		ClapTrap(std::string name);
-		ClapTrap(const ClapTrap & c);
-		~ClapTrap(); 
-		ClapTrap operator = (const ClapTrap & c);
-		
+		ClapTrap(const ClapTrap& other);
+		~ClapTrap();
 
-		void attack(std::string const & target);	
-		void takeDamage(unsigned int amount);	
-		void beRepaired(unsigned int amount);	
+		ClapTrap& operator=(const ClapTrap& other);
 
-	protected:
+		void attack(const std::string& target);
+		void takeDamage(unsigned int amount);
+		void beRepaired(unsigned int amount);
+	private:
 		std::string _name;
-		int _hitpoints;
-		int _energypoints;
-		int _attackdamage;
+		unsigned int _hitPoints;
+		unsigned int _energyPoints;
+		unsigned int _attackDamage;
 };
 
 #endif

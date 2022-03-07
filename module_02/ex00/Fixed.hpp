@@ -1,25 +1,31 @@
-#ifndef FIXED_HPP
-# define FIXED_HPP
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dpoveda- <me@izenynn.com>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/15 16:10:57 by dpoveda-          #+#    #+#             */
+/*   Updated: 2022/02/15 16:46:19 by dpoveda-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-# include <iostream>
+#ifndef EX00_FIXED_HPP_
+# define EX00_FIXED_HPP_
 
-class	Fixed
-{
-public:
-	Fixed(void);
-	Fixed(Fixed const & rhs);
-	~Fixed(void);
+class Fixed {
+	public:
+		Fixed();
+		Fixed(const Fixed& other);
+		~Fixed();
 
-	int getRawBits(void) const;
-	void setRawBits(int const raw); 
+		Fixed& operator=(const Fixed& other);
 
-	Fixed &operator=(Fixed const & rhs);
-
-private :
-	int _fixed;
-	int _fractional_bits;
+		void setRawBits(const int rawBits);
+		int getRawBits() const;
+	private:
+		static const int _nFracBits = 8;
+		int _rawBits;
 };
-
-std::ostream &	operator<<(std::ostream & out, Fixed const & rhs);
 
 #endif

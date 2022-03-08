@@ -12,7 +12,7 @@
 
 .PHONY: all clean fclean re
 
-CXX			= clang++
+CXX			= c++
 CXX_FLAGS	= -Wall -Wextra -Werror -std=c++98
 NAME 		= FragTrap
 

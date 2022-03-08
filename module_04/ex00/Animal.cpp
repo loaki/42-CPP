@@ -1,17 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dpoveda- <me@izenynn.com>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 12:54:19 by dpoveda-          #+#    #+#             */
-/*   Updated: 2022/02/16 13:38:16 by dpoveda-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Animal.hpp"
-
 #include <iostream>
 
 Animal::Animal()
@@ -38,7 +25,7 @@ Animal& Animal::operator=(const Animal& other) {
 }
 
 void Animal::makeSound() const {
-	std::cout << "\"Animal generic sound\"" << std::endl;
+	std::cout << "..." << std::endl;
 }
 
 const std::string& Animal::getType() const {

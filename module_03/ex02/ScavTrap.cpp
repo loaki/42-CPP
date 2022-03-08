@@ -42,7 +42,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other) {
 
 void ScavTrap::attack(const std::string& target) {
 	if (this->_energyPoints == 0) {
-		std::cout << "ClapTrap " << this->_name << " has not enought Energy points" << std::endl;
+		std::cout << "ScavTrap " << this->_name << " has not enought Energy points" << std::endl;
 		return;
 	}
 	this->_energyPoints--;

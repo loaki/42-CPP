@@ -1,5 +1,4 @@
 #include "Human.hpp"
-
 #include <iostream>
 
 Human::Human() {

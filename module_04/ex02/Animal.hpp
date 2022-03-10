@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dpoveda- <me@izenynn.com>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 12:36:32 by dpoveda-          #+#    #+#             */
-/*   Updated: 2022/02/16 23:26:39 by dpoveda-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef ANIMAL_HPP_
 # define ANIMAL_HPP_
 
@@ -19,6 +7,8 @@
 
 class Animal {
 	public:
+		Animal();
+		Animal(const Animal& other);
 		virtual ~Animal();
 
 		Animal& operator=(const Animal& other);
@@ -27,11 +17,7 @@ class Animal {
 
 		const std::string& getType() const;
 	protected:
-		Animal();
-		Animal(const Animal& other);
-
 		std::string type;
-	private:
 };
 
 #endif

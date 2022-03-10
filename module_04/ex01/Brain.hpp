@@ -11,9 +11,9 @@ class Brain {
 
 		Brain& operator=(const Brain& other);
 
-		static const int kNIdeas = 100;
+		static const int nb_ideas = 100;
 
-		std::string ideas[Brain::kNIdeas];
+		std::string ideas[Brain::nb_ideas];
 };
 
 #endif

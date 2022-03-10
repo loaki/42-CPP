@@ -1,40 +1,26 @@
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "Human.hpp"
-
 #include <iostream>
 
-#define N_ANIMALS 10
-
 int main() {
-	std::cout << "==================   SHITY TEST   ==================\n" << std::endl;
-
-	std::cout << "==================   BASIC TEST   ==================\n" << std::endl;
-
 	Dog *dog = new Dog();
 	Cat *cat = new Cat();
-	Human *human = new Human();
 
 	std::cout << std::endl;
 
 	std::cout << dog->getType() << std::endl;
 	std::cout << cat->getType() << std::endl;
-	std::cout << human->getType() << std::endl;
 
 	std::cout << std::endl;
 
 	dog->makeSound();
 	cat->makeSound();
-	human->makeSound();
 
 	std::cout << std::endl;
 
-	// TEST DEEP COPY
-	std::cout << "================== TEST DEEP COPY ==================\n" << std::endl;
-
-	cat->getBrain()->ideas[0] = "I like potatoes";
-	cat->getBrain()->ideas[1] = "I like ice cream";
+	cat->getBrain()->ideas[0] = "bird";
+	cat->getBrain()->ideas[1] = "fish";
 
 	std::cout << "Cat ideas:" << std::endl;
 	for (int i = 0; i < 2; i++) std::cout << "Idea: " << cat->getBrain()->ideas[i] << std::endl;
@@ -60,8 +46,8 @@ int main() {
 	for (int i = 0; i < 2; i++) std::cout << "Idea: " << cat2->getBrain()->ideas[i] << std::endl;
 	std::cout << std::endl;
 
-	std::cout << "Cat ideas (now he hates ice cream)" << std::endl;
-	cat->getBrain()->ideas[1] = "I hate ice cream";
+	std::cout << "Cat ideas" << std::endl;
+	cat->getBrain()->ideas[1] = "sleep";
 	for (int i = 0; i < 2; i++) std::cout << "Idea: " << cat->getBrain()->ideas[i] << std::endl;
 	std::cout << std::endl;
 
@@ -69,21 +55,16 @@ int main() {
 	for (int i = 0; i < 2; i++) std::cout << "Idea: " << cat2->getBrain()->ideas[i] << std::endl;
 	std::cout << std::endl;
 
-	std::cout << "==================   CLEAN ALL    ==================\n" << std::endl;
-
 	delete dog;
 	delete cat;
 	delete cat2;
-	delete human;
 
 	std::cout << std::endl;
 
-	std::cout << "================ SUBJECT ARRAY TEST ================\n" << std::endl;
+	Animal *animals[10];
 
-	Animal *animals[N_ANIMALS];
-
-	for (int i = 0; i < N_ANIMALS; i++) {
-		if (i < N_ANIMALS / 2) {
+	for (int i = 0; i < 10; i++) {
+		if (i < 10 / 2) {
 			animals[i] = new Cat();
 		} else {
 			animals[i] = new Dog();
@@ -92,13 +73,13 @@ int main() {
 
 	std::cout << std::endl;
 
-	for (int i = 0; i < N_ANIMALS; i++) {
+	for (int i = 0; i < 10; i++) {
 		animals[i]->makeSound();
 	}
 
 	std::cout << std::endl;
 
-	for (int i = 0; i < N_ANIMALS; i++) {
+	for (int i = 0; i < 10; i++) {
 		delete animals[i];
 	}
 }

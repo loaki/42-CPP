@@ -1,17 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dpoveda- <me@izenynn.com>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 13:19:29 by dpoveda-          #+#    #+#             */
-/*   Updated: 2022/02/16 18:35:26 by dpoveda-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Cat.hpp"
-
 #include <iostream>
 
 Cat::Cat() {
@@ -37,7 +24,6 @@ Cat::~Cat() {
 Cat& Cat::operator=(const Cat& other) {
 	this->Animal::operator=(other);
 
-	//this->brain = other.brain; // shallow copy
 	*this->brain = *other.brain; // deep copy
 
 	std::cout << "Cat: Assignment operator" << std::endl;
@@ -46,7 +32,7 @@ Cat& Cat::operator=(const Cat& other) {
 }
 
 void Cat::makeSound() const {
-	std::cout << "Meow! Meow! Meow!" << std::endl;
+	std::cout << "Miaou!" << std::endl;
 }
 
 Brain* Cat::getBrain() const {

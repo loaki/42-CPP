@@ -1,17 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dpoveda- <me@izenynn.com>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 13:13:19 by dpoveda-          #+#    #+#             */
-/*   Updated: 2022/02/16 18:33:58 by dpoveda-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Dog.hpp"
-
 #include <iostream>
 
 Dog::Dog() {
@@ -37,7 +24,6 @@ Dog::~Dog() {
 Dog& Dog::operator=(const Dog& other) {
 	this->Animal::operator=(other);
 
-	//this->brain = other.brain; // shallow copy
 	*this->brain = *other.brain; // deep copy
 
 	std::cout << "Dog: Assignment operator" << std::endl;
@@ -46,7 +32,7 @@ Dog& Dog::operator=(const Dog& other) {
 }
 
 void Dog::makeSound() const {
-	std::cout << "Woof! Woof! Woof!" << std::endl;
+	std::cout << "Bark!" << std::endl;
 }
 
 Brain* Dog::getBrain() const {

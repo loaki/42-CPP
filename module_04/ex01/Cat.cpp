@@ -24,7 +24,6 @@ Cat::~Cat() {
 Cat& Cat::operator=(const Cat& other) {
 	this->Animal::operator=(other);
 
-	//this->brain = other.brain; // shallow copy
 	*this->brain = *other.brain; // deep copy
 
 	std::cout << "Cat: Assignment operator" << std::endl;
@@ -33,7 +32,7 @@ Cat& Cat::operator=(const Cat& other) {
 }
 
 void Cat::makeSound() const {
-	std::cout << "Meow! Meow! Meow!" << std::endl;
+	std::cout << "Miaou!" << std::endl;
 }
 
 Brain* Cat::getBrain() const {

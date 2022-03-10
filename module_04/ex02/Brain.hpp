@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dpoveda- <me@izenynn.com>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 14:18:27 by dpoveda-          #+#    #+#             */
-/*   Updated: 2022/02/16 14:55:34 by dpoveda-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef BRAIN_HPP_
 # define BRAIN_HPP_
 
@@ -23,9 +11,9 @@ class Brain {
 
 		Brain& operator=(const Brain& other);
 
-		static const int kNIdeas = 100;
+		static const int nb_ideas = 100;
 
-		std::string ideas[Brain::kNIdeas];
+		std::string ideas[Brain::nb_ideas];
 };
 
 #endif

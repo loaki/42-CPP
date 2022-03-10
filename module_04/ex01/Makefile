@@ -13,13 +13,14 @@
 .PHONY: all clean fclean re
 
 CXX			= c++
-CXX_FLAGS	= -Wall -Wextra -Werror -std=c++98
+CXX_FLAGS	= -Wall -Wextra -Werror -std=c++98 -g
 NAME 		= animal
 
 SRC			= main.cpp\
 			  Animal.cpp\
 			  Cat.cpp\
 			  Dog.cpp\
+			  Brain.cpp\
 			  WrongAnimal.cpp\
 			  WrongCat.cpp\
 

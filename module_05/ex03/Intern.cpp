@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Intern.cpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dpoveda- <me@izenynn.com>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/18 03:14:02 by dpoveda-          #+#    #+#             */
-/*   Updated: 2022/02/18 03:34:19 by dpoveda-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Intern.hpp"
 
 Intern::Intern() {
@@ -48,5 +36,5 @@ Form* Intern::makeForm(std::string name, std::string target) {
 	if (ret != NULL) std::cout << "Intern creates form " << name << std::endl;
 	else std::cout << "Intern was not able to find the form " << name << std::endl;
 
-	return ret; // value will be NULL if no coincidence
+	return ret;
 }

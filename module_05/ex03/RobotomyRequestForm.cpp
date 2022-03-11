@@ -1,17 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dpoveda- <me@izenynn.com>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/18 01:58:17 by dpoveda-          #+#    #+#             */
-/*   Updated: 2022/02/18 03:03:52 by dpoveda-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "RobotomyRequestForm.hpp"
-
 #include <cstdlib>
 #include <ctime>
 
@@ -40,7 +27,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 }
 
 void RobotomyRequestForm::executeAction() const {
-	std::srand(std::time(NULL)); // use current time as seed for random generator
+	std::srand(std::time(NULL));
 
 	std::cout << "* SOME DRILLING NOISES *" << std::endl;
 	if (std::rand() % 2 == 0) {

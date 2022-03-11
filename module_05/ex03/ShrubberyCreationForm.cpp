@@ -1,17 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dpoveda- <me@izenynn.com>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/18 01:35:50 by dpoveda-          #+#    #+#             */
-/*   Updated: 2022/02/18 22:50:23 by dpoveda-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ShrubberyCreationForm.hpp"
-
 #include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm()
@@ -44,14 +31,4 @@ void ShrubberyCreationForm::executeAction() const {
 	out.open((this->getTarget() + "_shrubbery").c_str(), std::ofstream::out | std::ofstream::trunc);
 
 	out << std::endl;
-	out << "               ,@@@@@@@,                  " << std::endl;
-	out << "       ,,,.   ,@@@@@@/@@,  .oo8888o.      " << std::endl;
-	out << "    ,&&%&%&&%,@@@@@/@@@@@@,8888|88/8o     " << std::endl;
-	out << "   ,%&|%&&%&&%,@@@|@@@/@@@88|88888/88'    " << std::endl;
-	out << "   %&&%&%&/%&&%@@|@@/ /@@@88888|88888'    " << std::endl;
-	out << "   %&&%/ %&&%&&@@| V /@@' `88|8 `/88'     " << std::endl;
-	out << "   `&%| ` /%&'    |.|        | '|8'       " << std::endl;
-	out << "       |o|        | |         | |         " << std::endl;
-	out << "       |.|        | |         | |         " << std::endl;
-	out << "    ||/ ._|//_/__/  ,|_//__||/.  |_//__/_ " << std::endl;
 }

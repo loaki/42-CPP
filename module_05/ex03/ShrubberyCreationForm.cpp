@@ -28,7 +28,20 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 void ShrubberyCreationForm::executeAction() const {
 	std::ofstream out;
 
-	out.open((this->getTarget() + "_shrubbery").c_str(), std::ofstream::out | std::ofstream::trunc);
+	out.open((this->getTarget() + "_shrubbery").c_str(), std::ofstream::in | std::ofstream::trunc);
+	out <<	"            ,@@@@@@@,							\n" <<
+			"    ,,,.   ,@@@@@@/@@,  .oo8888o.				\n" <<
+    		",&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o				\n" <<
+   			",%&\\%&&%&&%,@@@\\@@@/@@@88\\88888/88'			\n"<<
+   			"%&&%&%&/%&&%@@\\@@/ /@@@88888\\88888'			\n"<<
+   			"%&&%/ %&%%&&@@\\ V /@@' `88\\8 `/88'			\n"<<
+   			"`&%\\ ` /%&'    |.|        \\ '|8'				\n"<<
+    		"    |o|        | |         | |					\n"<<
+    		"    |.|        | |         | |					\n"<<
+			" \\\\/ ._\\//_/__/  ,\\_//__\\\\/.  \\_//__/_	\n"<< std::endl;
 
-	out << std::endl;
+
+			
+			
+
 }

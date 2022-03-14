@@ -19,18 +19,39 @@ Intern& Intern::operator=(const Intern& other) {
 	return *this;
 }
 
+static Form*	robotomy( std::string target)
+{
+	return new RobotomyRequestForm(target);
+}
+
+static Form*	shrubbery( std::string target)
+{
+	return new ShrubberyCreationForm(target);
+}
+
+static Form*	presidential( std::string target)
+{
+	return new PresidentialPardonForm(target);
+}
+
 Form* Intern::makeForm(std::string name, std::string target) {
 	static const int kNForms = 3;
-	t_forms forms[kNForms] = {
-		{ "shrubbery creation", new ShrubberyCreationForm(target) },
-		{ "robotomy request", new RobotomyRequestForm(target) },
-		{ "presidential pardon", new PresidentialPardonForm(target) }
+
+	Form* (*form[kNForms])(std::string target) = {
+		&shrubbery,
+		&robotomy,
+		&presidential
+	};
+
+	std::string forms[kNForms] = {
+		"shrubbery creation",
+		"robotomy request",
+		"presidential pardon"
 	};
 
 	Form* ret = NULL;
 	for (int i = 0; i < kNForms; i++) {
-		if (forms[i].name == name) ret = forms[i].formClass;
-		else delete forms[i].formClass;
+		if (forms[i] == name) ret = form[i](target);
 	}
 
 	if (ret != NULL) std::cout << "Intern creates form " << name << std::endl;

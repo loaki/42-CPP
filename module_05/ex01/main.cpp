@@ -4,123 +4,120 @@
 #include <iostream>
 
 int main() {
-	std::cout << "\n========== BUREAUCRAT ==========\n" << std::endl;
 
-	Bureaucrat *bob = new Bureaucrat("Bob", 2);
+	Bureaucrat *pierre = new Bureaucrat("Pierre", 2);
 	try {
-		std::cout << "1: " << *bob << std::endl;
-		bob->increment();
-		std::cout << "2: " << *bob << std::endl;
-		bob->increment();
-		std::cout << "3: " << *bob << std::endl;
-		bob->increment();
-		std::cout << "4: " << *bob << std::endl;
-	} catch (std::exception& e) {
+		std::cout << "1: " << *pierre << std::endl;
+		pierre->increment();
+		std::cout << "2: " << *pierre << std::endl;
+		pierre->increment();
+		std::cout << "3: " << *pierre << std::endl;
+		pierre->increment();
+		std::cout << "4: " << *pierre << std::endl;
+	}
+	catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}
-	delete bob;
+	delete pierre;
 
 	std::cout << std::endl;
 
-	Bureaucrat *jim = new Bureaucrat("Jim", 10);
+	Bureaucrat *paul = new Bureaucrat("Paul", 10);
 	try {
-		std::cout << "1: " << *jim << std::endl;
-		jim->increment();
-		std::cout << "2: " << *jim << std::endl;
-		jim->increment();
-		std::cout << "3: " << *jim << std::endl;
-		jim->increment();
-		std::cout << "4: " << *jim << std::endl;
-	} catch (std::exception& e) {
+		std::cout << "1: " << *paul << std::endl;
+		paul->increment();
+		std::cout << "2: " << *paul << std::endl;
+		paul->increment();
+		std::cout << "3: " << *paul << std::endl;
+		paul->increment();
+		std::cout << "4: " << *paul << std::endl;
+	}
+	catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}
-	delete jim;
+	delete paul;
 
 	std::cout << std::endl;
 
-	Bureaucrat *luffy = new Bureaucrat("Luffy", 145);
+	Bureaucrat *jack = new Bureaucrat("Jack", 149);
 	try {
-		std::cout << "1: " << *luffy << std::endl;
-		luffy->decrement();
-		std::cout << "2: " << *luffy << std::endl;
-		luffy->decrement();
-		std::cout << "3: " << *luffy << std::endl;
-		luffy->decrement();
-		std::cout << "4: " << *luffy << std::endl;
-		luffy->decrement();
-		std::cout << "5: " << *luffy << std::endl;
-		luffy->decrement();
-		std::cout << "6: " << *luffy << std::endl;
-		luffy->decrement();
-		std::cout << "7: " << *luffy << std::endl;
-	} catch (std::exception& e) {
+		std::cout << "1: " << *jack << std::endl;
+		jack->decrement();
+		std::cout << "2: " << *jack << std::endl;
+		jack->decrement();
+		std::cout << "3: " << *jack << std::endl;
+		jack->decrement();
+		std::cout << "4: " << *jack << std::endl;
+		jack->decrement();
+	}
+	catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}
-	delete luffy;
+	delete jack;
 
 	std::cout << std::endl;
 
 	try {
-		Bureaucrat yuno("Yuno", 151);
-		std::cout << "HELLO WORLD!!!" << std::endl;
-	} catch (std::exception& e) {
-		std::cout << e.what() << std::endl;
+		Bureaucrat low("Low", 151);
+		std::cout << "?" << std::endl;
 	}
-
-	std::cout << std::endl;
-
-	try {
-		Bureaucrat yuno("Yuno", -1);
-		std::cout << "HELLO WORLD!!!" << std::endl;
-	} catch (std::exception& e) {
+	catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}
 
-	std::cout << "\n========== FORM ==========\n" << std::endl;
+	std::cout << std::endl;
 
-	Bureaucrat* poor = new Bureaucrat("Poor", 130);
-	Bureaucrat* rich = new Bureaucrat("Rich", 15);
-	Form* budgets = new Form("budgets", 30, 10);
+	try {
+		Bureaucrat high("High", -1);
+		std::cout << "?" << std::endl;
+	}
+	catch (std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << "\n=== FORM ===\n" << std::endl;
+
+	Bureaucrat* low = new Bureaucrat("Low", 130);
+	Bureaucrat* high = new Bureaucrat("High", 15);
+	Form* forms = new Form("Forms", 30, 10);
 
 	std::cout << std::endl;
 
-	// Bureaucrat::signForm()
-	std::cout << *budgets;
+	std::cout << *forms;
 	std::cout << std::endl;
 	try {
-		poor->signForm(*budgets);
+		low->signForm(*forms);
 	} catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}
 
 	try {
-		rich->signForm(*budgets);
+		high->signForm(*forms);
 	} catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}
 	std::cout << std::endl;
-	std::cout << *budgets;
+	std::cout << *forms;
 
 	std::cout << std::endl;
 
-	// Form::beSigned()
 	try {
-		budgets->beSigned(*poor);
+		forms->beSigned(*low);
 	} catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}
 	
 	try {
-		budgets->beSigned(*rich);
+		forms->beSigned(*high);
 	} catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}
 
 	std::cout << std::endl;
 
-	delete poor;
-	delete rich;
-	delete budgets;
+	delete low;
+	delete high;
+	delete forms;
 
 	return 0;
 }

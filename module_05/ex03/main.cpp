@@ -1,88 +1,14 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "Intern.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
-#include "Intern.hpp"
 
 #include <iostream>
 
 int main() {
-	std::cout << "\n========== BUREAUCRAT ==========\n" << std::endl;
-
-	Bureaucrat *bob = new Bureaucrat("Bob", 2);
-	try {
-		std::cout << "1: " << *bob << std::endl;
-		bob->increment();
-		std::cout << "2: " << *bob << std::endl;
-		bob->increment();
-		std::cout << "3: " << *bob << std::endl;
-		bob->increment();
-		std::cout << "4: " << *bob << std::endl;
-	} catch (std::exception& e) {
-		std::cout << e.what() << std::endl;
-	}
-	delete bob;
-
-	std::cout << std::endl;
-
-	Bureaucrat *jim = new Bureaucrat("Jim", 10);
-	try {
-		std::cout << "1: " << *jim << std::endl;
-		jim->increment();
-		std::cout << "2: " << *jim << std::endl;
-		jim->increment();
-		std::cout << "3: " << *jim << std::endl;
-		jim->increment();
-		std::cout << "4: " << *jim << std::endl;
-	} catch (std::exception& e) {
-		std::cout << e.what() << std::endl;
-	}
-	delete jim;
-
-	std::cout << std::endl;
-
-	Bureaucrat *luffy = new Bureaucrat("Luffy", 145);
-	try {
-		std::cout << "1: " << *luffy << std::endl;
-		luffy->decrement();
-		std::cout << "2: " << *luffy << std::endl;
-		luffy->decrement();
-		std::cout << "3: " << *luffy << std::endl;
-		luffy->decrement();
-		std::cout << "4: " << *luffy << std::endl;
-		luffy->decrement();
-		std::cout << "5: " << *luffy << std::endl;
-		luffy->decrement();
-		std::cout << "6: " << *luffy << std::endl;
-		luffy->decrement();
-		std::cout << "7: " << *luffy << std::endl;
-	} catch (std::exception& e) {
-		std::cout << e.what() << std::endl;
-	}
-	delete luffy;
-
-	std::cout << std::endl;
-
-	try {
-		Bureaucrat yuno("Yuno", 151);
-		std::cout << "HELLO WORLD!!!" << std::endl;
-	} catch (std::exception& e) {
-		std::cout << e.what() << std::endl;
-	}
-
-	std::cout << std::endl;
-
-	try {
-		Bureaucrat yuno("Yuno", -1);
-		std::cout << "HELLO WORLD!!!" << std::endl;
-	} catch (std::exception& e) {
-		std::cout << e.what() << std::endl;
-	}
-
-	std::cout << "\n========== FORM ==========\n" << std::endl;
-
-	std::cout << "CREATE BUREAUCRATS:" << std::endl;
+	std::cout << "=== CREATE BUREAUCRATS: ===" << std::endl;
 	Bureaucrat* b150 = new Bureaucrat("b150", 150);
 	Bureaucrat* b140 = new Bureaucrat("b140", 140);
 	Bureaucrat* b100 = new Bureaucrat("b100", 100);
@@ -90,7 +16,7 @@ int main() {
 
 	std::cout << std::endl;
 
-	std::cout << "PRINT BUREAUCRATS:" << std::endl;
+	std::cout << "=== PRINT BUREAUCRATS: ===" << std::endl;
 	std::cout << *b150 << std::endl;
 	std::cout << *b140 << std::endl;
 	std::cout << *b100 << std::endl;
@@ -98,115 +24,105 @@ int main() {
 
 	std::cout << std::endl;
 
-	std::cout << "CREATE INTERN:" << std::endl;
+	std::cout << "=== CREATE INTERN:=== " << std::endl;
 	Intern* intern = new Intern();
 	std::cout << std::endl;
 
-	std::cout << "INTERN CREATES FORMS:" << std::endl;
-	//ShrubberyCreationForm *garden = new ShrubberyCreationForm("garden");
-	Form *garden = intern->makeForm("shrubbery creation", "garden");
+	std::cout << "=== INTERN CREATES FORMS: ===" << std::endl;
+	Form *shrubbery = intern->makeForm("shrubbery creation", "Shrubbery");
 	std::cout << std::endl;
 
-	//RobotomyRequestForm *neighbor = new RobotomyRequestForm("neighbor");
-	Form *neighbor = intern->makeForm("robotomy request", "neighbor");
+	Form *robotomy = intern->makeForm("robotomy request", "Robotomy");
 	std::cout << std::endl;
 
-	//PresidentialPardonForm *rick = new PresidentialPardonForm("rick");
-	Form *rick = intern->makeForm("presidential pardon", "rick");
+	Form *presidential = intern->makeForm("presidential pardon", "Presidential");
+	std::cout << std::endl;				
+
+	Form *budgets = intern->makeForm("budgets", "foo");
+	budgets = 0;
 	std::cout << std::endl;
 
-	Form *budgets = intern->makeForm("budgets", "morty");
-	std::cout << std::endl;
-
-	std::cout << "DELETE INTERN:" << std::endl;
+	std::cout << "=== DELETE INTERN: ===" << std::endl;
 	delete intern;
 
 	std::cout << std::endl;
 
-	std::cout << "FORMS MEMEORY ADDRESS:" << std::endl;
-	std::cout << "shrubbery creation: " << garden << std::endl;
-	std::cout << "robotomy request: " << neighbor << std::endl;
-	std::cout << "presidential pardon: " << rick << std::endl;
-	std::cout << "budgets (not exists so intern doesn't create it): " << budgets << std::endl;
+	std::cout << "=== PRINT FORMS: ===" << std::endl;
+	std::cout << *shrubbery << std::endl;
+	std::cout << *robotomy << std::endl;
+	std::cout << *presidential << std::endl;
 
 	std::cout << std::endl;
 
-	std::cout << "PRINT FORMS:" << std::endl;
-	std::cout << *garden << std::endl;
-	std::cout << *neighbor << std::endl;
-	std::cout << *rick << std::endl;
-
-	std::cout << std::endl;
-
-	std::cout << "TEST SHRUBBERY CREATION:" << std::endl;
+	std::cout << "=== TEST SHRUBBERY CREATION: ===" << std::endl;
 	// ShrubberyCreationForm
 	try { // try to execute before sign
-		b100->executeForm(*garden);
+		b100->executeForm(*shrubbery);
 	} catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}
 	try { // try to sign with low level
-		b150->signForm(*garden);
+		b150->signForm(*shrubbery);
 	} catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}
 	try { // sign
-		b140->signForm(*garden);
+		b140->signForm(*shrubbery);
 	} catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}
-	std::cout << *garden << std::endl; // display update info
+	std::cout << *shrubbery << std::endl; // display update info
 	try { // try to execute with low level
-		b140->executeForm(*garden);
+		b140->executeForm(*shrubbery);
 	} catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}
 	try { // execute
-		b100->executeForm(*garden);
+		b100->executeForm(*shrubbery);
 	} catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}
 
 	std::cout << std::endl;
 
-	std::cout << "TEST ROBOTOMY REQUEST:" << std::endl;
+	std::cout << "=== TEST ROBOTOMY REQUEST: ===" << std::endl;
 	// RobotomyRequestForm (execute main multiple times to check randomizer is working)
 	try { // sign
-		b1->signForm(*neighbor);
+		b1->signForm(*robotomy);
 	} catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}
 	try { // execute
-		b1->executeForm(*neighbor);
+		b1->executeForm(*robotomy);
 	} catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}
 
 	std::cout << std::endl;
 
-	std::cout << "TEST PRESIDENTIAL PARDON:" << std::endl;
+	std::cout << "=== TEST PRESIDENTIAL PARDON: ===" << std::endl;
 	// PresidentialPardonForm
 	try { // sign
-		b1->signForm(*rick);
+		b1->signForm(*presidential);
 	} catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}
 	try { // execute
-		b1->executeForm(*rick);
+		b1->executeForm(*presidential);
 	} catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}
 
 	std::cout << std::endl;
 
-	std::cout << "DELETE FORMS:" << std::endl;
-	delete garden;
-	delete neighbor;
-	delete rick;
+	std::cout << "=== DELETE FORMS: ===" << std::endl;
+	delete shrubbery;
+	delete robotomy;
+	delete presidential;
 
 	std::cout << std::endl;
 
-	std::cout << "DELETE BUREAUCRATS:" << std::endl;
+	std::cout << "=== DELETE BUREAUCRATS: ===" << std::endl;
 	delete b150;
 	delete b140;
 	delete b100;

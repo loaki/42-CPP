@@ -17,11 +17,6 @@ class Intern {
 		Intern& operator=(const Intern& other);
 
 		Form* makeForm(std::string name, std::string target);
-	private:
-		typedef struct s_forms {
-			std::string name;
-			Form *formClass;
-		} t_forms;
 };
 
 #endif

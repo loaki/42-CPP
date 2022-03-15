@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dpoveda- <me@izenynn.com>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/18 23:48:30 by dpoveda-          #+#    #+#             */
-/*   Updated: 2022/02/19 12:45:37 by dpoveda-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Base.hpp"
 #include "A.hpp"
 #include "B.hpp"
@@ -33,8 +21,6 @@ Base* generate() {
 			std::cout << "generated an C class" << std::endl;
 			return new C;
 	}
-
-	std::cout << "some very weird error ocurred: can't generate a class" << std::endl;
 	return NULL;
 }
 
@@ -76,8 +62,8 @@ int main() {
 	Base *base;
 
 	base = generate();
-	identify(base); // pointer
-	identify(*base); // reference
+	identify(base);
+	identify(*base);
 
 	return 0;
 }

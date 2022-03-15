@@ -1,17 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Scalar.cpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dpoveda- <me@izenynn.com>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/18 23:47:49 by dpoveda-          #+#    #+#             */
-/*   Updated: 2022/02/20 14:51:20 by dpoveda-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Scalar.hpp"
-
 #include <iostream>
 #include <string>
 #include <cstdlib>
@@ -33,7 +20,7 @@ void Scalar::convert(const std::string& literal) {
 	float toFloat = 0;
 	double toDouble = 0;
 
-	//if is a char
+	//char
 	if (literal.size() == 1 && std::isprint(literal[0]) && !std::isdigit(literal[0])) {
 		toChar = literal[0];
 		std::cout << "char: " << toChar << std::endl;
@@ -43,10 +30,10 @@ void Scalar::convert(const std::string& literal) {
 		return;
 	}
 
-	//else if it is a number
+	//int
 	toInt = std::atoi(literal.c_str());
 
-	// check if it is float or int / double
+	//float / double
 	if (literal[literal.length() - 1] == 'f') {
 		toFloat = std::atof(literal.c_str());
 		toDouble = static_cast<double>(toFloat);
@@ -57,10 +44,10 @@ void Scalar::convert(const std::string& literal) {
 
 	for (int i = 0; i < 6; ++i) {
 		if (literal == specialTypes[i]) {
-			toChar = "imposible"; break;
+			toChar = "impossible"; break;
 		}
 	}
-	if (toChar == "" && std::isprint(toInt)) {
+	if (toInt <= 255 && toInt >= 0 && toChar == "" && std::isprint(toInt)) {
 		toChar = "'";
 		toChar += static_cast<char>(toInt);
 		toChar += "'";
@@ -69,17 +56,16 @@ void Scalar::convert(const std::string& literal) {
 	}
 
 	std::cout << "char: " << toChar << std::endl;
-	if (toChar == "imposible") {
-		std::cout << "int: imposible" << std::endl;
+	if (toChar == "impossible" || toDouble > INT_MAX || toDouble < INT_MIN) {
+		std::cout << "int: impossible" << std::endl;
 	} else {
 		std::cout << "int: " << toInt << std::endl;
 	}
-
 	if (toChar == "imposible" && toFloat == 0) {
-		std::cout << "float: imposible" << std::endl;
-		std::cout << "double: imposible" << std::endl;
+		std::cout << "float: impossible" << std::endl;
+		std::cout << "double: impossible" << std::endl;
 	} else {
-		if (toChar != "imposible" && toFloat - static_cast<int>(toFloat) == 0) {
+		if (toChar != "impossible" && toFloat - static_cast<int>(toFloat) == 0) {
 			std::cout << "float: " << toFloat << ".0f" << std::endl;
 			std::cout << "double: " << toDouble << ".0" << std::endl;
 		} else {

@@ -1,22 +1,9 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dpoveda- <me@izenynn.com>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/19 13:13:23 by dpoveda-          #+#    #+#             */
-/*   Updated: 2022/02/19 13:22:45 by dpoveda-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "iter.hpp"
-
 #include <iostream>
 
 template<typename T>
-void debug(const T& var) {
-	std::cout << var << std::endl;
+void print(const T& var) {
+	std::cout << var << " | ";
 }
 
 template<typename T>
@@ -25,18 +12,19 @@ void increment(const T& var) {
 }
 
 int main() {
-	int arrInt[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-	std::string arrString[4] = {"abc", "dfg", "hij", "klm"};
+	int arrInt[6] = {-2, -1, 0, 1, 2, 42};
+	std::string arrString[3] = {"Pierre", "Paul", "Jack"};
 
-	std::cout << "INT ARRAY:\n" << std::endl;
-	::iter(arrInt, 10, &debug);
+	std::cout << "=== int array ===" << std::endl;
+	::iter(arrInt, 6, &print);
 
-	std::cout << "\nINT ARRAY (after increment):\n" << std::endl;
-	::iter(arrInt, 10, &increment);
-	::iter(arrInt, 10, &debug);
+	std::cout << "\n\n=== incremented int array ===" << std::endl;
+	::iter(arrInt, 6, &increment);
+	::iter(arrInt, 6, &print);
 
-	std::cout << "\nSTRING ARRAY:\n" << std::endl;
-	::iter(arrString, 4, &debug);
+	std::cout << "\n\n=== string array ===" << std::endl;
+	::iter(arrString, 3, &print);
+	std::cout << std::endl;
 
 	return 0;
 }

@@ -1,30 +1,18 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dpoveda- <me@izenynn.com>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/19 13:25:39 by dpoveda-          #+#    #+#             */
-/*   Updated: 2022/02/19 14:56:12 by dpoveda-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Array.hpp"
-
 #include <iostream>
 #include <string>
 
 int main() {
+	Array<int> arrIntEmpty(0);
 	Array<int> arrInt(5);
 	Array<char> arrChar(5);
 	Array<std::string> arrString(3);
 
-	arrInt[0] = 10;
-	arrInt[1] = 11;
-	arrInt[2] = 12;
-	arrInt[3] = 13;
-	arrInt[4] = 14;
+	arrInt[0] = -1;
+	arrInt[1] = 0;
+	arrInt[2] = 1;
+	arrInt[3] = 2;
+	arrInt[4] = 42;
 
 	arrChar[0] = 'a';
 	arrChar[1] = 'b';
@@ -32,31 +20,35 @@ int main() {
 	arrChar[3] = 'd';
 	arrChar[4] = 'e';
 
-	arrString[0] = "hello";
-	arrString[1] = "world";
-	arrString[2] = ":D";
+	arrString[0] = "Pierre";
+	arrString[1] = "Paul";
+	arrString[2] = "Jack";
 
-	std::cout << "\n========== BASIC TESTS ==========\n" << std::endl;
+	std::cout << "=== empty int array ===" << std::endl;
+	std::cout << "size: " << arrIntEmpty.size() << std::endl;
+	for (std::size_t i = 0; i < arrIntEmpty.size(); ++i) {
+		std::cout << arrIntEmpty[i] << " | ";
+	}
 
-	std::cout << "INT ARRAY:" << std::endl;
-	std::cout << "size: " << arrInt.size() << '\n' << std::endl;
+	std::cout << "\n\n=== int array ===" << std::endl;
+	std::cout << "size: " << arrInt.size() << std::endl;
 	for (std::size_t i = 0; i < arrInt.size(); ++i) {
-		std::cout << arrInt[i] << std::endl;
+		std::cout << arrInt[i] << " | ";
 	}
 
-	std::cout << "\nCHAR ARRAY:" << std::endl;
-	std::cout << "size: " << arrChar.size() << '\n' << std::endl;
+	std::cout << "\n\n=== char array ===" << std::endl;
+	std::cout << "size: " << arrChar.size() << std::endl;
 	for (std::size_t i = 0; i < arrChar.size(); ++i) {
-		std::cout << arrChar[i] << std::endl;
+		std::cout << arrChar[i] << " | ";
 	}
 
-	std::cout << "\nSTRING ARRAY:" << std::endl;
-	std::cout << "size: " << arrString.size() << '\n' << std::endl;
+	std::cout << "\n\n=== string array ===" << std::endl;
+	std::cout << "size: " << arrString.size() << std::endl;
 	for (std::size_t i = 0; i < arrString.size(); ++i) {
-		std::cout << arrString[i] << std::endl;
+		std::cout << arrString[i] << " | ";
 	}
 
-	std::cout << "\n========== EXCEPTIONS ==========\n" << std::endl;
+	std::cout << "\n\n=== exceptions ===\n" << std::endl;
 
 	try {
 		std::cout << arrString[1] << std::endl;
@@ -69,82 +61,32 @@ int main() {
 		std::cerr << e.what() << std::endl;
 	}
 	try {
-		std::cout << arrString[5] << std::endl;
+		std::cout << arrInt[5] << std::endl;
 	} catch (std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}
 
-	std::cout << "\n========== COPY CONSTRUCTOR (DEEP) ==========\n" << std::endl;
-
+	std::cout << "\n=== copy string array ===\n" << std::endl;
 	Array<std::string> copy(arrString);
-
-	std::cout << "\nSTRING ARRAY:" << std::endl;
-	std::cout << "size: " << arrString.size() << '\n' << std::endl;
-	for (std::size_t i = 0; i < arrString.size(); ++i) {
-		std::cout << arrString[i] << std::endl;
-	}
-	std::cout << "\nCOPY ARRAY:" << std::endl;
-	std::cout << "size: " << copy.size() << '\n' << std::endl;
+	std::cout << "size: " << copy.size() << std::endl;
 	for (std::size_t i = 0; i < copy.size(); ++i) {
-		std::cout << copy[i] << std::endl;
+		std::cout << copy[i] << " | ";
 	}
 
-	std::cout << "\n----- change string array[2] to \":(\"-----" << std::endl;
-	arrString[2] = ":(";
+	std::cout << "\n\nchange arrString[2] to \"Bob\"" << std::endl;
+	arrString[2] = "Bob";
 
-	std::cout << "\nSTRING ARRAY:" << std::endl;
-	std::cout << "size: " << arrString.size() << '\n' << std::endl;
+	std::cout << "\n=== string array ===\n" << std::endl;
+	std::cout << "size: " << arrString.size() << std::endl;
 	for (std::size_t i = 0; i < arrString.size(); ++i) {
-		std::cout << arrString[i] << std::endl;
+		std::cout << arrString[i] << " | ";
 	}
-	std::cout << "\nCOPY ARRAY:" << std::endl;
-	std::cout << "size: " << copy.size() << '\n' << std::endl;
+	std::cout << "\n\n=== copy ===\n" << std::endl;
+	std::cout << "size: " << copy.size() << std::endl;
 	for (std::size_t i = 0; i < copy.size(); ++i) {
-		std::cout << copy[i] << std::endl;
+		std::cout << copy[i] << " | ";
 	}
-
-	std::cout << "\n========== ASSIGNMENT OPERATOR (DEEP) ==========\n" << std::endl;
-
-	Array<std::string> copy2(5);
-
-	std::cout << "\nSTRING ARRAY:" << std::endl;
-	std::cout << "size: " << arrString.size() << '\n' << std::endl;
-	for (std::size_t i = 0; i < arrString.size(); ++i) {
-		std::cout << arrString[i] << std::endl;
-	}
-	std::cout << "\nCOPY ARRAY:" << std::endl;
-	std::cout << "size: " << copy2.size() << '\n' << std::endl;
-	for (std::size_t i = 0; i < copy2.size(); ++i) {
-		std::cout << copy2[i] << std::endl;
-	}
-
-	std::cout << "\n----- copy = string array -----" << std::endl;
-	copy2 = arrString;
-
-	std::cout << "\nSTRING ARRAY:" << std::endl;
-	std::cout << "size: " << arrString.size() << '\n' << std::endl;
-	for (std::size_t i = 0; i < arrString.size(); ++i) {
-		std::cout << arrString[i] << std::endl;
-	}
-	std::cout << "\nCOPY ARRAY:" << std::endl;
-	std::cout << "size: " << copy2.size() << '\n' << std::endl;
-	for (std::size_t i = 0; i < copy2.size(); ++i) {
-		std::cout << copy2[i] << std::endl;
-	}
-
-	std::cout << "\n----- change string array[2] to \":D\"-----" << std::endl;
-	arrString[2] = ":D";
-
-	std::cout << "\nSTRING ARRAY:" << std::endl;
-	std::cout << "size: " << arrString.size() << '\n' << std::endl;
-	for (std::size_t i = 0; i < arrString.size(); ++i) {
-		std::cout << arrString[i] << std::endl;
-	}
-	std::cout << "\nCOPY ARRAY:" << std::endl;
-	std::cout << "size: " << copy2.size() << '\n' << std::endl;
-	for (std::size_t i = 0; i < copy2.size(); ++i) {
-		std::cout << copy2[i] << std::endl;
-	}
+	std::cout << std::endl;
 
 	return 0;
 }

@@ -38,7 +38,7 @@ int main() {
 
 	// too small exception
 	try {
-		Span s(5);
+		Span s(1);
 		s.addNumber(2);
 		std::cout << "shortest span: " << s.shortestSpan() << std::endl;
 		std::cout << "longest span : " << s.longestSpan() << std::endl;
@@ -46,8 +46,7 @@ int main() {
 		std::cerr << "EXCEPTION: " << e.what() << std::endl;
 	}
 	try {
-		Span s(1);
-		s.addNumber(2);
+		Span s(0);
 		std::cout << "shortest span: " << s.shortestSpan() << std::endl;
 		std::cout << "longest span : " << s.longestSpan() << std::endl;
 	} catch (std::exception& e) {

@@ -1,4 +1,4 @@
-#include "span.hpp"
+#include "Span.hpp"
 #include <algorithm>
 
 Span::Span() {}

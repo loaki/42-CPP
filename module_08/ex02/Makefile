@@ -14,10 +14,9 @@
 
 CXX			= c++
 CXX_FLAGS	= -Wall -Wextra -Werror -std=c++98 -g
-NAME 		= span
+NAME 		= mutant
 
 SRC			= main.cpp\
-			  Span.cpp\
 
 OBJ			= $(SRC:.cpp=.o)
 
